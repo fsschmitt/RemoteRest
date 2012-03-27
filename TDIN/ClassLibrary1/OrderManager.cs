@@ -6,7 +6,7 @@ using System.Text;
 
 public class OrderManager
 {
-    Hashtable orders;
+    Hashtable orders = new Hashtable();
 
     public void addOrder(Order o)
     {
