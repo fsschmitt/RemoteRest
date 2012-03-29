@@ -1,0 +1,10 @@
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\Server.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\Server.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\obj\x86\Debug\Server.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\obj\x86\Debug\Server.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\Server.exe.config
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\Common.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\OrderManager.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Server\bin\Debug\OrderManager.pdb

@@ -1,0 +1,8 @@
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\bin\Debug\RoomClient.exe.config
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\bin\Debug\RoomClient.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\bin\Debug\RoomClient.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\bin\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\RoomClient\bin\Debug\Common.pdb

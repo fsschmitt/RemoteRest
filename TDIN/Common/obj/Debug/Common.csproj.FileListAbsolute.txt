@@ -1,0 +1,5 @@
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\ResolveAssemblyReference.cache
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\bin\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\bin\Debug\Common.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\Common.pdb

@@ -1,0 +1,7 @@
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\bin\Debug\OrderManager.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\bin\Debug\OrderManager.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\ResolveAssemblyReference.cache
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\bin\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\bin\Debug\Common.pdb

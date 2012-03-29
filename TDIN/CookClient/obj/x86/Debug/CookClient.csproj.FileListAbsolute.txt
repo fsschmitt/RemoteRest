@@ -1,0 +1,8 @@
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.exe
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.exe.config
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\bin\Debug\Common.dll
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\bin\Debug\Common.pdb
