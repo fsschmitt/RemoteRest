@@ -8,6 +8,7 @@ public class OrderManager:MarshalByRefObject, IOrderManager
 {
     Hashtable orders;
     public event newOrderDelegate newOrderEvent;
+    public event orderChangedDelegate orderChangedEvent;
 
     public OrderManager()
     {
@@ -26,6 +27,8 @@ public class OrderManager:MarshalByRefObject, IOrderManager
     {
         if(orders.ContainsKey(orderID))
             ((Order)orders[orderID]).State= newState;
+        if (orderChangedEvent != null)
+            orderChangedEvent((Order)orders[orderID]);
     }
 
 }

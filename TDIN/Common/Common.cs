@@ -86,23 +86,31 @@ public enum OrderState
 public interface IOrderManager
 {
     event newOrderDelegate newOrderEvent;
+    event orderChangedDelegate orderChangedEvent;
     void addOrder(Order o);
     void changeState(int orderID, OrderState newState);
 }
 public delegate void newOrderDelegate(Order o);
+public delegate void orderChangedDelegate(Order o);
 
-public class newOrderRepeater : MarshalByRefObject
+public class Repeater : MarshalByRefObject
 {
     public event newOrderDelegate newOrder;
-
+    public event orderChangedDelegate orderChanged;
     public override object InitializeLifetimeService()
     {
         return null;
     }
 
-    public void Repeater(Order o)
+    public void newOrderRepeater(Order o)
     {
         if (newOrder != null)
             newOrder(o);
     }
+    public void orderChangedRepeater(Order o)
+    {
+        if (orderChanged != null)
+            orderChanged(o);
+    }
+
 }
