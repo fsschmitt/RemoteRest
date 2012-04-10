@@ -1,0 +1,10 @@
+TDIN/Common/bin/
+TDIN/Common/obj/
+TDIN/CookClient/bin/
+TDIN/CookClient/obj/
+TDIN/OrderManager/bin/
+TDIN/OrderManager/obj/
+TDIN/RoomClient/bin/
+TDIN/RoomClient/obj/
+TDIN/Server/bin/
+TDIN/Server/obj/
