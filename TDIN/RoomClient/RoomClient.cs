@@ -25,6 +25,17 @@ class Program
         Console.WriteLine(o);
         rc.OrderManager.addOrder(o);
 
+        Order o1 = new Order();
+
+        o1.CookDestination = CookType.Kitchen;
+        o1.Description = "Order 2";
+         System.Threading.Thread.Sleep(5000);
+
+        rc.OrderManager.addOrder(o1);
+
+
+
+
 
     }
 }

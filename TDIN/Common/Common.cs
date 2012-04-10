@@ -7,10 +7,10 @@ using System.Text;
 public class Order
 {
     int id;
-
+    static int ID = 0;
     public Order()
     {
-        id = 0;
+        id = ID++;
         state = OrderState.Waiting;
         desc = "default order";
         tableID = 0;
@@ -19,6 +19,8 @@ public class Order
         price = 10;
 
     }
+
+  
     public int Id
     {
         get { return id; }
@@ -54,7 +56,7 @@ public class Order
     }
     CookType cookDestination;
 
-    internal CookType CookDestination
+    public CookType CookDestination
     {
         get { return cookDestination; }
         set { cookDestination = value; }
@@ -85,27 +87,36 @@ public enum OrderState
 
 public interface IOrderManager
 {
-    event newOrderDelegate newOrderEvent;
+    event newOrderBarDelegate newOrderBarEvent;
+    event newOrderKitchenDelegate newOrderKitchenEvent;
     event orderChangedDelegate orderChangedEvent;
     void addOrder(Order o);
     void changeState(int orderID, OrderState newState);
 }
-public delegate void newOrderDelegate(Order o);
+public delegate void newOrderBarDelegate(Order o);
 public delegate void orderChangedDelegate(Order o);
+public delegate void newOrderKitchenDelegate(Order o);
+
 
 public class Repeater : MarshalByRefObject
 {
-    public event newOrderDelegate newOrder;
+    public event newOrderBarDelegate newOrderBar;
+    public event newOrderKitchenDelegate newOrderKitchen;
     public event orderChangedDelegate orderChanged;
     public override object InitializeLifetimeService()
     {
         return null;
     }
 
-    public void newOrderRepeater(Order o)
+    public void newOrderBarRepeater(Order o)
     {
-        if (newOrder != null)
-            newOrder(o);
+        if (newOrderBar != null)
+            newOrderBar(o);
+    }
+    public void newOrderKitchenRepeater(Order o)
+    {
+        if (newOrderKitchen != null)
+            newOrderKitchen(o);
     }
     public void orderChangedRepeater(Order o)
     {

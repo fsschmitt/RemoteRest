@@ -7,7 +7,8 @@ using System.Text;
 public class OrderManager:MarshalByRefObject, IOrderManager
 {
     Hashtable orders;
-    public event newOrderDelegate newOrderEvent;
+    public event newOrderKitchenDelegate newOrderKitchenEvent;
+    public event newOrderBarDelegate newOrderBarEvent;
     public event orderChangedDelegate orderChangedEvent;
 
     public OrderManager()
@@ -18,10 +19,26 @@ public class OrderManager:MarshalByRefObject, IOrderManager
     {
         
         orders.Add(o.Id, o);
-        if (newOrderEvent != null)
-            newOrderEvent(o);
-        else
-            Console.WriteLine("No one is listening!");
+        switch (o.CookDestination)
+        {
+            case CookType.Bar:
+                if (newOrderBarEvent != null)
+                     newOrderBarEvent(o);
+                else
+                    Console.WriteLine("No one in the Bar is listening!");
+                break;
+            case CookType.Kitchen:
+                if (newOrderKitchenEvent != null)
+                     newOrderKitchenEvent(o);
+                else
+                    Console.WriteLine("No one in the Kitchen is listening!");
+                break;
+            default:
+                Console.WriteLine("OOPS");
+                break;
+        }
+        
+       
     }
     public void changeState(int orderID, OrderState newState)
     {
