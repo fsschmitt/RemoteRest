@@ -6,22 +6,27 @@ using System.Text;
 [Serializable]
 public class Order
 {
-    int id;
+    String id;
     static int ID = 0;
     public Order()
     {
-        id = ID++;
-        state = OrderState.Waiting;
-        desc = "default order";
-        tableID = 0;
-        qt = 10;
-        cookDestination = CookType.Bar;
-        price = 10;
+               
+    }
+    public Order(int qt, String desc,int tableID, double price, CookType cookDestination)
+    {
+        id = "t"+tableID+"o"+ID++;
+        Description = desc;
+        this.tableID = tableID;
+        this.price = price;
+        this.cookDestination = cookDestination;
+        this.State = OrderState.Waiting;
+        this.qt = qt;
+
 
     }
 
   
-    public int Id
+    public String Id
     {
         get { return id; }
         set { id = value; }
@@ -77,7 +82,7 @@ public class Order
 
 public enum CookType
 {
-    Kitchen, Bar
+     Bar, Kitchen
 }
 
 public enum OrderState
@@ -91,7 +96,7 @@ public interface IOrderManager
     event newOrderKitchenDelegate newOrderKitchenEvent;
     event orderChangedDelegate orderChangedEvent;
     void addOrder(Order o);
-    void changeState(int orderID, OrderState newState);
+    void changeState(String orderID, OrderState newState);
 }
 public delegate void newOrderBarDelegate(Order o);
 public delegate void orderChangedDelegate(Order o);

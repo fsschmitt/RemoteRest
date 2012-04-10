@@ -3,27 +3,23 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Runtime.Remoting;
+using System.Windows.Forms;
 
 class Program
 {
-    static void Main(string[] args)
+   public static RoomClient rc;
+   public static void Main(string[] args)
     {
-        try
+       try
         {
             // loads the config file
             RemotingConfiguration.Configure("RoomClient.exe.config", true);
         }
         catch (Exception e) { Console.WriteLine(e.Message); }
-        RoomClient rc = new RoomClient();
-        
-        Console.WriteLine("Return to update inventory...");
-        Console.ReadLine();
-
-        // creates the remote object
-
-        Order o = new Order();
-        Console.WriteLine(o);
-        rc.OrderManager.addOrder(o);
+      
+        rc = new RoomClient();
+       
+       /* rc.OrderManager.addOrder(o);
 
         Order o1 = new Order();
 
@@ -33,8 +29,10 @@ class Program
 
         rc.OrderManager.addOrder(o1);
 
-
-
+        */
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new MainForm());
 
 
     }

@@ -40,7 +40,7 @@ public class OrderManager:MarshalByRefObject, IOrderManager
         
        
     }
-    public void changeState(int orderID, OrderState newState)
+    public void changeState(String orderID, OrderState newState)
     {
         if(orders.ContainsKey(orderID))
             ((Order)orders[orderID]).State= newState;
