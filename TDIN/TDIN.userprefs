@@ -1,12 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ClassLibrary1/OrderManager.cs">
-    <Files>
-      <File FileName="ClassLibrary1/Order.cs" Line="6" Column="8" />
-      <File FileName="ClassLibrary1/OrderManager.cs" Line="19" Column="6" />
-      <File FileName="ClassLibrary1/Utils.cs" Line="6" Column="8" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
