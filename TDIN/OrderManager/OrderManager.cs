@@ -48,5 +48,40 @@ public class OrderManager:MarshalByRefObject, IOrderManager
             orderChangedEvent((Order)orders[orderID]);
     }
 
+    public Hashtable getAllOrders()
+    {
+        return this.orders;
+    }
+
+    public Order getOrderFromID(string id)
+    {
+        return (Order)orders[id];
+    }
+
+    public ArrayList getOrdersFromTable(int id)
+    {
+        ArrayList al = new ArrayList();
+        ICollection c = this.orders.Values;
+        foreach (Order o in c)
+        {
+            if (o.TableID == id)
+                al.Add(o);
+        }
+
+        return al;
+    }
+
+    public ArrayList getAllDestination(CookType ct)
+    {
+        ArrayList al = new ArrayList();
+        ICollection c = this.orders.Values;
+        foreach (Order o in c)
+        {
+            if (o.CookDestination == ct)
+                al.Add(o);
+        }
+        return al;
+    }
+
 }
 

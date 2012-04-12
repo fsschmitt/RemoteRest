@@ -3,12 +3,19 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Runtime.Remoting;
+using System.Windows.Forms;
 
 class Program
 {
+    public static CookClient cc;
+    public static MainForm mf;
+    public static bool debug = true;
+
     static void Main(string[] args)
     {
-        Console.WriteLine("I'm the cook");
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        if (Program.debug) Console.WriteLine("I'm the cook");
         try
         {
             // loads the config file
@@ -16,9 +23,12 @@ class Program
         }
         catch (Exception e) { Console.WriteLine("erro no log " + e.Message); }
 
-        // creates the remote object
-        IOrderManager om = (IOrderManager)RemoteNew.New(typeof(IOrderManager));
+        
+        mf = new MainForm();
+        cc = new CookClient(mf,CookType.Bar);
+        Application.Run(mf);
 
+        /*
         // creats the logger
         CookClient cBar = new CookClient(om,CookType.Bar);
 
@@ -32,6 +42,7 @@ class Program
 
         Console.WriteLine("Return to exit...");
         Console.ReadLine();
+        */
     }
 }
 
@@ -65,13 +76,25 @@ class CookClient
     CookType cType; 
     Repeater orderRepeater;
     IOrderManager om;
-    public CookClient(IOrderManager om, CookType type)
+    MainForm mf;
+    public CookClient(MainForm mf,CookType type)
     {
-     this.om = om;
-     this.cType = type;
+        this.mf = mf;
+        this.cType = type;
+        setup();
     }
+
+    public IOrderManager OrderManager
+    {
+        get { return om; }
+        set { om = value; }
+    }
+
     public void setup()
     {
+
+        // creates the remote object
+        om = (IOrderManager)RemoteNew.New(typeof(IOrderManager));
         orderRepeater = new Repeater();
         switch (cType)
         {
@@ -84,22 +107,27 @@ class CookClient
                 om.newOrderBarEvent += new newOrderBarDelegate(orderRepeater.newOrderBarRepeater);
                 break;
             default:
-                Console.WriteLine("OOPS");
+                if (Program.debug) Console.WriteLine("OOPS");
                 break;
 
         }
-       
-        
-        Console.WriteLine("Setup was made");
+
+        if (Program.debug) Console.WriteLine("Setup was made");
     }
+    
     public void newOrderHandler(Order o)
     {
-        Console.WriteLine(cType + " Received a new order!\n" + o);
+        /*Console.WriteLine(cType + " Received a new order!\n" + o);
         Console.WriteLine("I am cooking!\n");
         om.changeState(o.Id, OrderState.InProgress);
         System.Threading.Thread.Sleep(5000);
         om.changeState(o.Id, OrderState.Ready);
         Console.WriteLine("Done!\n");
+        */
+        if(Program.debug) Console.WriteLine(cType + " Received a new order!\n" + o);
+        
+        mf.addNewOrder(o);
+       
     }
 
 }

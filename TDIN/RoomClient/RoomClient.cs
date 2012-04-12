@@ -8,6 +8,7 @@ using System.Windows.Forms;
 class Program
 {
    public static RoomClient rc;
+   public static MainForm mf;
    public static void Main(string[] args)
     {
        try
@@ -16,8 +17,13 @@ class Program
             RemotingConfiguration.Configure("RoomClient.exe.config", true);
         }
         catch (Exception e) { Console.WriteLine(e.Message); }
-      
+
+       Application.EnableVisualStyles();
+       Application.SetCompatibleTextRenderingDefault(false);
+        
+        mf = new MainForm();
         rc = new RoomClient();
+       
        
        /* rc.OrderManager.addOrder(o);
 
@@ -30,9 +36,7 @@ class Program
         rc.OrderManager.addOrder(o1);
 
         */
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new MainForm());
+        Application.Run(mf);
 
 
     }
@@ -41,12 +45,21 @@ class Program
 class RoomClient
 {
     IOrderManager om;
+    Hashtable tables;
+
+    public Hashtable Tables
+    {
+        get { return tables; }
+        set { tables = value; }
+    }
 
     public IOrderManager OrderManager
     {
         get { return om; }
         set { om = value; }
     }
+
+
     Repeater orderRepeater;
      void setup()
     {
@@ -56,12 +69,41 @@ class RoomClient
         om.orderChangedEvent += new orderChangedDelegate(orderRepeater.orderChangedRepeater);
         Console.WriteLine("Setup was made");
     }
-     public RoomClient()
-     {
-         setup();
-     }
+
+    public RoomClient()
+    {
+        tables = new Hashtable();
+        setup();
+    }
+    delegate void updateViewDelegate();
     public void orderChangedHandler(Order o)
     {
+
+        
+        int index = -1;
+        foreach (Order ord in ((Table)tables[o.TableID]).Orders)
+        {
+
+            if (ord.Id == o.Id)
+            {
+                index++;
+                break;
+            }
+            index++;
+            
+        }
+
+        if (index != -1)
+        {
+            ((Table)tables[o.TableID]).Orders[index] = o;
+            Program.mf.updateTable(o.TableID);
+        }
+
+        
+
+       
+      
+        /*
         switch (o.State)
         {
             case OrderState.Waiting:
@@ -73,7 +115,8 @@ class RoomClient
             case OrderState.InProgress:
                  Console.WriteLine("Your food started to cook!");
                 break;
-        }
+        }*/
+
         
         
     }

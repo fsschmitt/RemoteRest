@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Threading;
 
     public partial class NewOrder : Form
     {
@@ -76,7 +77,7 @@ using System.Collections;
             double price = prices[cbDestination.SelectedIndex][cbDesc.SelectedIndex];
             CookType cookDestination = (CookType)Enum.ToObject(typeof(CookType), cbDestination.SelectedIndex);
             Order o = new Order(qt, desc,tableID, price, cookDestination);
-            lbRequests.Items.Add(o.TableID + " - " + o.CookDestination + ": "+ o.Description + " - " + o.Qt);
+            lbRequests.Items.Add("["+o.Id+"] "+ o.TableID + " - " + o.CookDestination + ": "+ o.Description + " - " + o.Qt);
             txtTable.Enabled = false;
             btnFinalize.Enabled = true;
             orders.Add(o);
@@ -124,12 +125,38 @@ using System.Collections;
             }
         }
 
+        delegate void updateViewDelegate(Table t);
+        delegate void updateTableDelegate(int index);
         private void btnFinalize_Click(object sender, EventArgs e)
         {
+            int tableID = Convert.ToInt32(txtTable.Text);
             foreach (Order o in orders)
                 Program.rc.OrderManager.addOrder(o);
+
+            
+            if (Program.rc.Tables.ContainsKey(tableID))
+            {
+                updateTableDelegate utd = new updateTableDelegate(Program.mf.updateTable);
+
+                ((Table)Program.rc.Tables[tableID]).addOrders(orders);
+                utd.Invoke(tableID);
+            }
+            else
+            {
+                Table newTable = new Table(tableID);
+                newTable.addOrders(orders);
+                Program.rc.Tables.Add(tableID, newTable);
+                updateViewDelegate uvd = new updateViewDelegate(Program.mf.addNewTable);
+                uvd.Invoke(newTable);
+            }
+            
+
             this.Close();
         }
+
+        
+
+
         
     }
 

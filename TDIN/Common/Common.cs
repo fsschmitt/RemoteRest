@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
 [Serializable]
-public class Order
+public class Order : ICloneable
 {
     String id;
     static int ID = 0;
@@ -23,6 +23,11 @@ public class Order
         this.qt = qt;
 
 
+    }
+
+    public object Clone()
+    {
+        return this.MemberwiseClone();
     }
 
   
@@ -97,6 +102,10 @@ public interface IOrderManager
     event orderChangedDelegate orderChangedEvent;
     void addOrder(Order o);
     void changeState(String orderID, OrderState newState);
+    Hashtable getAllOrders();
+    ArrayList getAllDestination(CookType ct);
+    ArrayList getOrdersFromTable(int id);
+    Order getOrderFromID(string id);
 }
 public delegate void newOrderBarDelegate(Order o);
 public delegate void orderChangedDelegate(Order o);

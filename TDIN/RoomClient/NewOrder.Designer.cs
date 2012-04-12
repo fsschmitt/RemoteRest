@@ -30,20 +30,21 @@
             this.cbDesc = new System.Windows.Forms.ComboBox();
             this.cbDestination = new System.Windows.Forms.ComboBox();
             this.btnAddRequest = new System.Windows.Forms.Button();
-            this.txtQt = new System.Windows.Forms.TextBox();
             this.lblQt = new System.Windows.Forms.Label();
             this.gbRequest = new System.Windows.Forms.GroupBox();
+            this.txtQt = new System.Windows.Forms.NumericUpDown();
             this.lbRequests = new System.Windows.Forms.ListBox();
             this.btnFinalize = new System.Windows.Forms.Button();
             this.lblTable = new System.Windows.Forms.Label();
-            this.txtTable = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtTable = new System.Windows.Forms.NumericUpDown();
             this.gbRequest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTable)).BeginInit();
             this.SuspendLayout();
             // 
             // cbDesc
             // 
-            this.cbDesc.Enabled = false;
             this.cbDesc.FormattingEnabled = true;
             this.cbDesc.Location = new System.Drawing.Point(140, 19);
             this.cbDesc.Name = "cbDesc";
@@ -52,7 +53,6 @@
             // 
             // cbDestination
             // 
-            this.cbDestination.Enabled = false;
             this.cbDestination.FormattingEnabled = true;
             this.cbDestination.Items.AddRange(new object[] {
             "Bar",
@@ -65,7 +65,6 @@
             // 
             // btnAddRequest
             // 
-            this.btnAddRequest.Enabled = false;
             this.btnAddRequest.Location = new System.Drawing.Point(275, 58);
             this.btnAddRequest.Name = "btnAddRequest";
             this.btnAddRequest.Size = new System.Drawing.Size(75, 23);
@@ -73,14 +72,6 @@
             this.btnAddRequest.Text = "Add Request";
             this.btnAddRequest.UseVisualStyleBackColor = true;
             this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
-            // 
-            // txtQt
-            // 
-            this.txtQt.Enabled = false;
-            this.txtQt.Location = new System.Drawing.Point(140, 61);
-            this.txtQt.Name = "txtQt";
-            this.txtQt.Size = new System.Drawing.Size(100, 20);
-            this.txtQt.TabIndex = 3;
             // 
             // lblQt
             // 
@@ -93,8 +84,8 @@
             // 
             // gbRequest
             // 
-            this.gbRequest.Controls.Add(this.lblQt);
             this.gbRequest.Controls.Add(this.txtQt);
+            this.gbRequest.Controls.Add(this.lblQt);
             this.gbRequest.Controls.Add(this.btnAddRequest);
             this.gbRequest.Controls.Add(this.cbDesc);
             this.gbRequest.Controls.Add(this.cbDestination);
@@ -104,6 +95,23 @@
             this.gbRequest.TabIndex = 5;
             this.gbRequest.TabStop = false;
             this.gbRequest.Text = "Request";
+            // 
+            // txtQt
+            // 
+            this.txtQt.Location = new System.Drawing.Point(141, 61);
+            this.txtQt.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtQt.Name = "txtQt";
+            this.txtQt.Size = new System.Drawing.Size(120, 20);
+            this.txtQt.TabIndex = 5;
+            this.txtQt.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lbRequests
             // 
@@ -134,14 +142,6 @@
             this.lblTable.TabIndex = 8;
             this.lblTable.Text = "Table";
             // 
-            // txtTable
-            // 
-            this.txtTable.Location = new System.Drawing.Point(62, 21);
-            this.txtTable.Name = "txtTable";
-            this.txtTable.Size = new System.Drawing.Size(100, 20);
-            this.txtTable.TabIndex = 9;
-            this.txtTable.TextChanged += new System.EventHandler(this.txtTable_TextChanged);
-            // 
             // btnDelete
             // 
             this.btnDelete.Enabled = false;
@@ -153,13 +153,30 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // txtTable
+            // 
+            this.txtTable.Location = new System.Drawing.Point(63, 24);
+            this.txtTable.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTable.Name = "txtTable";
+            this.txtTable.Size = new System.Drawing.Size(120, 20);
+            this.txtTable.TabIndex = 11;
+            this.txtTable.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // NewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(374, 384);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtTable);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.lblTable);
             this.Controls.Add(this.btnFinalize);
             this.Controls.Add(this.lbRequests);
@@ -168,6 +185,8 @@
             this.Text = "NewOrder";
             this.gbRequest.ResumeLayout(false);
             this.gbRequest.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,12 +197,12 @@
         private System.Windows.Forms.ComboBox cbDesc;
         private System.Windows.Forms.ComboBox cbDestination;
         private System.Windows.Forms.Button btnAddRequest;
-        private System.Windows.Forms.TextBox txtQt;
         private System.Windows.Forms.Label lblQt;
         private System.Windows.Forms.GroupBox gbRequest;
         private System.Windows.Forms.ListBox lbRequests;
         private System.Windows.Forms.Button btnFinalize;
         private System.Windows.Forms.Label lblTable;
-        private System.Windows.Forms.TextBox txtTable;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.NumericUpDown txtQt;
+        private System.Windows.Forms.NumericUpDown txtTable;
     }

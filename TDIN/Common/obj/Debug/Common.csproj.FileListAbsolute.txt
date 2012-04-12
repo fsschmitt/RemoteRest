@@ -1,5 +1,15 @@
-D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\ResolveAssemblyReference.cache
+\\hvfs.feupsig.fe.up.pt\users\ei08160\Desktop\remote-rest\TDIN\Common\bin\Debug\Common.dll
+\\hvfs.feupsig.fe.up.pt\users\ei08160\Desktop\remote-rest\TDIN\Common\bin\Debug\Common.pdb
+\\hvfs.feupsig.fe.up.pt\users\ei08160\Desktop\remote-rest\TDIN\Common\obj\Debug\ResolveAssemblyReference.cache
+\\hvfs.feupsig.fe.up.pt\users\ei08160\Desktop\remote-rest\TDIN\Common\obj\Debug\Common.dll
+\\hvfs.feupsig.fe.up.pt\users\ei08160\Desktop\remote-rest\TDIN\Common\obj\Debug\Common.pdb
+C:\Users\ei08160\remote-rest\TDIN\Common\bin\Debug\Common.dll
+C:\Users\ei08160\remote-rest\TDIN\Common\bin\Debug\Common.pdb
+C:\Users\ei08160\remote-rest\TDIN\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ei08160\remote-rest\TDIN\Common\obj\Debug\Common.dll
+C:\Users\ei08160\remote-rest\TDIN\Common\obj\Debug\Common.pdb
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\bin\Debug\Common.dll
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\bin\Debug\Common.pdb
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\ResolveAssemblyReference.cache
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\Common.dll
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\Common\obj\Debug\Common.pdb

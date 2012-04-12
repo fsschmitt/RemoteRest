@@ -26,13 +26,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnNewOrder = new System.Windows.Forms.Button();
             this.btnCloseTable = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tvTables = new System.Windows.Forms.TreeView();
             this.gbTables = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.gbTables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewOrder
@@ -54,6 +57,7 @@
             this.btnCloseTable.TabIndex = 1;
             this.btnCloseTable.Text = "Close Table";
             this.btnCloseTable.UseVisualStyleBackColor = true;
+            this.btnCloseTable.Click += new System.EventHandler(this.btnCloseTable_Click);
             // 
             // panel1
             // 
@@ -71,6 +75,7 @@
             this.tvTables.Name = "tvTables";
             this.tvTables.Size = new System.Drawing.Size(389, 276);
             this.tvTables.TabIndex = 4;
+            this.tvTables.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTables_AfterSelect);
             // 
             // gbTables
             // 
@@ -82,17 +87,28 @@
             this.gbTables.TabStop = false;
             this.gbTables.Text = "Tables";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 115);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 325);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbTables);
             this.Name = "MainForm";
             this.Text = "RoomClient";
             this.panel1.ResumeLayout(false);
             this.gbTables.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,5 +120,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TreeView tvTables;
         private System.Windows.Forms.GroupBox gbTables;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
