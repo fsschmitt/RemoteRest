@@ -35,7 +35,10 @@ public partial class MainForm : Form
     {
         int index = lbOrders.SelectedIndex;
 
-        changeOrderState(index);
+        Order o = ((Order)orders[index]);
+        o.State = (OrderState)(((int)(o.State + 1)) % 3);
+        Program.cc.OrderManager.changeState(o.Id, o.State);
+
         if (lbOrders.Items.Count == 0)
         {
             btnNextState.Enabled = false;
@@ -43,17 +46,35 @@ public partial class MainForm : Form
         
     }
 
-    String[] btnTexts = { "Accept Order", "Finalize Order", "Remove Order" };
-    private void changeOrderState(int index)
+    private int getOrderIndex(Order o)
     {
-        Order o = ((Order)orders[index]);
-        
-        o.State = (OrderState)(((int)(o.State + 1)) % 3);
+        int index = 0;
+        foreach (Order ord in orders)
+        {
+            if (ord.Id == o.Id)
+            {
+                break;
+            }
+            index++;
+        }
+        return index; 
+    }
+
+    String[] btnTexts = { "Accept Order", "Finalize Order", "Remove Order" };
+    public void changeOrderState(Order o)
+    {
+        int index = getOrderIndex(o);
+        if (lbOrders.InvokeRequired)
+        {
+            this.BeginInvoke(new addNewOrderDelegate(changeOrderState), o);
+            return;
+        }
+
         if (Program.debug)
         {
+            Console.WriteLine("My index is: " + index);
             Console.WriteLine("ORDER SELECTED");
             Console.WriteLine(o);
-           
         }
         
         btnNextState.Text = btnTexts[(int)o.State];
@@ -66,12 +87,10 @@ public partial class MainForm : Form
         }
         else
         {
-            Program.cc.OrderManager.changeState(o.Id, o.State);
             lbOrders.Items[index] = o.Description + " - " + o.State;
         }
+
         lbOrders.Refresh();
-        
-        
     }
 
     private void lbOrders_SelectedIndexChanged(object sender, EventArgs e)

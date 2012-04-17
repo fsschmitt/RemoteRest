@@ -29,3 +29,15 @@ D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\Generate
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.exe
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.pdb
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClientNs.Properties.Resources.resources
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\MainForm.resources
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClientNs.Properties.Resources.resources
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.exe
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.exe.config
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.exe
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\bin\Debug\CookClient.pdb
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\bin\Debug\Common.dll
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\bin\Debug\Common.pdb
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.pdb

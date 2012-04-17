@@ -75,6 +75,7 @@ class CookClient
     int ID;
     CookType cType; 
     Repeater orderRepeater;
+    Repeater orderChangedRepeater;
     IOrderManager om;
     MainForm mf;
     public CookClient(MainForm mf,CookType type)
@@ -112,22 +113,23 @@ class CookClient
 
         }
 
+        orderChangedRepeater = new Repeater();
+        orderChangedRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
+        om.orderChangedEvent += new orderChangedDelegate(orderChangedRepeater.orderChangedRepeater);
+
         if (Program.debug) Console.WriteLine("Setup was made");
     }
     
     public void newOrderHandler(Order o)
     {
-        /*Console.WriteLine(cType + " Received a new order!\n" + o);
-        Console.WriteLine("I am cooking!\n");
-        om.changeState(o.Id, OrderState.InProgress);
-        System.Threading.Thread.Sleep(5000);
-        om.changeState(o.Id, OrderState.Ready);
-        Console.WriteLine("Done!\n");
-        */
         if(Program.debug) Console.WriteLine(cType + " Received a new order!\n" + o);
-        
         mf.addNewOrder(o);
-       
+    }
+
+    public void orderChangedHandler(Order o)
+    {
+        if (Program.debug) Console.WriteLine("Order number: " + o.Id + " changed to: " + o.State);
+        mf.changeOrderState(o);
     }
 
 }
