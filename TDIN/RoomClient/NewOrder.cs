@@ -134,7 +134,7 @@ using System.Threading;
                 Program.rc.OrderManager.addOrder(o);
 
             
-            if (Program.rc.Tables.ContainsKey(tableID))
+            /*if(Program.rc.Tables.ContainsKey(tableID))
             {
                 updateTableDelegate utd = new updateTableDelegate(Program.mf.updateTable);
 
@@ -148,7 +148,7 @@ using System.Threading;
                 Program.rc.Tables.Add(tableID, newTable);
                 updateViewDelegate uvd = new updateViewDelegate(Program.mf.addNewTable);
                 uvd.Invoke(newTable);
-            }
+            }*/
             
 
             this.Close();

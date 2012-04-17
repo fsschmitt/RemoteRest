@@ -48,14 +48,45 @@ class RoomClient
 
 
     Repeater orderRepeater;
+
     void setup()
     {
         om = (IOrderManager)RemoteNew.New(typeof(IOrderManager));
+
+        //Listen to any order that has changed
         orderRepeater = new Repeater();
         orderRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
         om.orderChangedEvent += new orderChangedDelegate(orderRepeater.orderChangedRepeater);
+
+        //Listen to new kitchen orders
+        orderRepeater.newOrderKitchen += new newOrderKitchenDelegate(newOrderHandler);
+        om.newOrderKitchenEvent += new newOrderKitchenDelegate(orderRepeater.newOrderKitchenRepeater);
+
+        //Listen to new bar orders
+        orderRepeater.newOrderBar += new newOrderBarDelegate(newOrderHandler);
+        om.newOrderBarEvent += new newOrderBarDelegate(orderRepeater.newOrderKitchenRepeater);
+
         setupTables(om.getAllOrders());
         Console.WriteLine("Setup was made");
+    }
+
+    private void newOrderHandler(Order o)
+    {
+
+        Console.WriteLine("RECIEVED THE ORDER: " + o);
+        if (Program.rc.Tables.ContainsKey(o.TableID))
+        {
+            ((Table)tables[o.TableID]).addOrder(o);
+            Program.mf.updateTable(o.TableID);
+        }
+        else
+        {
+            Table newTable = new Table(o.TableID);
+            newTable.addOrder(o);
+            tables.Add(o.TableID, newTable);
+            Program.mf.addNewTable(newTable);
+
+        }
     }
 
      private void setupTables(ArrayList orders)
@@ -84,8 +115,6 @@ class RoomClient
     delegate void updateViewDelegate();
     public void orderChangedHandler(Order o)
     {
-
-        
         int index = -1;
         foreach (Order ord in ((Table)tables[o.TableID]).Orders)
         {
