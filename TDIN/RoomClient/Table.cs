@@ -27,6 +27,11 @@ using System.Text;
             orders = new ArrayList();
         }
 
+        public void addOrder(Order o)
+        {
+            orders.Add(o);
+        }
+
         public void addOrders(ArrayList newOrders)
         {
             orders.AddRange(newOrders);

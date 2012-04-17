@@ -21,21 +21,8 @@ class Program
        Application.EnableVisualStyles();
        Application.SetCompatibleTextRenderingDefault(false);
         
-        mf = new MainForm();
         rc = new RoomClient();
-       
-       
-       /* rc.OrderManager.addOrder(o);
-
-        Order o1 = new Order();
-
-        o1.CookDestination = CookType.Kitchen;
-        o1.Description = "Order 2";
-         System.Threading.Thread.Sleep(5000);
-
-        rc.OrderManager.addOrder(o1);
-
-        */
+        mf = new MainForm();
         Application.Run(mf);
 
 
@@ -61,14 +48,33 @@ class RoomClient
 
 
     Repeater orderRepeater;
-     void setup()
+    void setup()
     {
         om = (IOrderManager)RemoteNew.New(typeof(IOrderManager));
         orderRepeater = new Repeater();
         orderRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
         om.orderChangedEvent += new orderChangedDelegate(orderRepeater.orderChangedRepeater);
+        setupTables(om.getAllOrders());
         Console.WriteLine("Setup was made");
     }
+
+     private void setupTables(ArrayList orders)
+     {
+         foreach(Order o in orders)
+         {
+             if (tables.ContainsKey(o.TableID))
+             {
+                 ((Table)tables[o.TableID]).addOrder(o);
+             }
+             else
+             {
+                 Console.WriteLine("New table: " + o.TableID);
+                 Table newTable = new Table(o.TableID);
+                 newTable.addOrder(o);
+                 tables.Add(o.TableID, newTable);
+             }
+         }
+     }
 
     public RoomClient()
     {
@@ -98,26 +104,6 @@ class RoomClient
             ((Table)tables[o.TableID]).Orders[index] = o;
             Program.mf.updateTable(o.TableID);
         }
-
-        
-
-       
-      
-        /*
-        switch (o.State)
-        {
-            case OrderState.Waiting:
-                Console.WriteLine("Oh noes, something went terribly wrong in the kitchen.");
-                break;
-            case OrderState.Ready:
-                Console.WriteLine("I'm going to get your food gentlemens!");
-                break;
-            case OrderState.InProgress:
-                 Console.WriteLine("Your food started to cook!");
-                break;
-        }*/
-
-        
         
     }
 

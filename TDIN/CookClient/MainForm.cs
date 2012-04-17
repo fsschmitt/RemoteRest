@@ -19,12 +19,14 @@ public partial class MainForm : Form
         btnNextState.Enabled = false;
     }
     public delegate void addNewOrderDelegate(Order o);
+    public delegate void changeOrderStateDelegate(Order o);
+    public delegate void addInitialOrdersDelegate(ArrayList ordersL);
 
     public void addInitialOrders(ArrayList ordersL)
     {
         if (lbOrders.InvokeRequired)
         {
-            this.BeginInvoke(new addNewOrderDelegate(addNewOrder), ordersL);
+            this.BeginInvoke(new addInitialOrdersDelegate(addInitialOrders), ordersL);
             return;
         }
         foreach (Order o in ordersL)
@@ -77,13 +79,14 @@ public partial class MainForm : Form
         return index; 
     }
 
+
     String[] btnTexts = { "Accept Order", "Finalize Order"};
     public void changeOrderState(Order o)
     {
         int index = getOrderIndex(o);
         if (lbOrders.InvokeRequired)
         {
-            this.BeginInvoke(new addNewOrderDelegate(changeOrderState), o);
+            this.BeginInvoke(new changeOrderStateDelegate(changeOrderState), o);
             return;
         }
 

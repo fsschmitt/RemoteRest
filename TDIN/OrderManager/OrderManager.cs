@@ -48,9 +48,9 @@ public class OrderManager:MarshalByRefObject, IOrderManager
             orderChangedEvent((Order)orders[orderID]);
     }
 
-    public Hashtable getAllOrders()
+    public ArrayList getAllOrders()
     {
-        return this.orders;
+        return new ArrayList(this.orders.Values);
     }
 
     public Order getOrderFromID(string id)

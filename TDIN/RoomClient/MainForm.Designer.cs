@@ -106,6 +106,7 @@
             this.Controls.Add(this.gbTables);
             this.Name = "MainForm";
             this.Text = "RoomClient";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.gbTables.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

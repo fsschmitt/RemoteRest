@@ -7,14 +7,26 @@ using System.Text;
 public class Order : ICloneable
 {
     String id;
-    static int ID = 0;
+    //static int ID = 0;
     public Order()
     {
                
     }
+
+    private string GenerateId()
+    {
+        long i = 1;
+        foreach (byte b in Guid.NewGuid().ToByteArray())
+        {
+            i *= ((int)b + 1);
+        }
+        return string.Format("{0:x}", i - DateTime.Now.Ticks);
+    }
+
     public Order(int qt, String desc,int tableID, double price, CookType cookDestination)
     {
-        id = "t"+tableID+"o"+ID++;
+        //id = "t"+tableID+"o"+ID++;
+        id = GenerateId();
         Description = desc;
         this.tableID = tableID;
         this.price = price;
@@ -102,7 +114,7 @@ public interface IOrderManager
     event orderChangedDelegate orderChangedEvent;
     void addOrder(Order o);
     void changeState(String orderID, OrderState newState);
-    Hashtable getAllOrders();
+    ArrayList getAllOrders();
     ArrayList getAllDestination(CookType ct);
     ArrayList getOrdersFromTable(int id);
     Order getOrderFromID(string id);

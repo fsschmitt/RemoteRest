@@ -20,16 +20,39 @@ using System.Windows.Forms;
             tvTables.ImageList = myImageList;
         }
 
+
+
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
             NewOrder no = new NewOrder();
             no.Show();
         }
 
+        public delegate void addInitialTablesDelegate();
+        public void addInitialTables()
+        {
+            if (tvTables.InvokeRequired)
+            {
+                this.BeginInvoke(new addInitialTablesDelegate(addInitialTables));
+                return;
+            }
 
+            ICollection myTables = Program.rc.Tables.Values;
+            foreach (Table t in myTables)
+            {
+                TreeNode[] orders = getTreeNodes(t);
+                tvTables.Nodes.Add(new TreeNode("Table: " + t.Id, orders));
+            }
+        }
+
+        public delegate void addNewTableDelegate(Table t);
         public void addNewTable(Table t)
         {
-          
+            if (tvTables.InvokeRequired)
+            {
+                this.BeginInvoke(new addNewTableDelegate(addNewTable), t);
+                return;
+            }
             TreeNode[] orders = getTreeNodes(t);
             tvTables.Nodes.Add(new TreeNode("Table: " + t.Id, orders));
             
@@ -74,7 +97,7 @@ using System.Windows.Forms;
         {
             if (tvTables.InvokeRequired)
             {
-                this.BeginInvoke(new removeTableDelegate(updateTable), tableID);
+                this.BeginInvoke(new removeTableDelegate(removeTable), tableID);
                 return;
             }
             tvTables.Nodes.RemoveAt(findTableInTreeView(tableID));
@@ -157,6 +180,11 @@ using System.Windows.Forms;
             {
                 btnCloseTable.Enabled = false;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            addInitialTables();
         }
 
         
