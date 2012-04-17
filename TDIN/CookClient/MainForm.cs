@@ -36,8 +36,18 @@ public partial class MainForm : Form
         int index = lbOrders.SelectedIndex;
 
         Order o = ((Order)orders[index]);
-        o.State = (OrderState)(((int)(o.State + 1)) % 3);
-        Program.cc.OrderManager.changeState(o.Id, o.State);
+
+        if (OrderState.Ready != o.State)
+        {
+            o.State = (OrderState)(((int)(o.State + 1)) % 3);
+            Program.cc.OrderManager.changeState(o.Id, o.State);
+        }
+        else
+        {
+            btnNextState.Enabled = false;
+            orders.RemoveAt(index);
+            lbOrders.Items.RemoveAt(index);
+        }
 
         if (lbOrders.Items.Count == 0)
         {
@@ -78,17 +88,8 @@ public partial class MainForm : Form
         }
         
         btnNextState.Text = btnTexts[(int)o.State];
-        
-        if ((int)o.State == 0)
-        {
-            btnNextState.Enabled = false;
-            orders.RemoveAt(index);
-            lbOrders.Items.RemoveAt(index);
-        }
-        else
-        {
-            lbOrders.Items[index] = o.Description + " - " + o.State;
-        }
+
+        lbOrders.Items[index] = o.Description + " - " + o.State;
 
         lbOrders.Refresh();
     }
