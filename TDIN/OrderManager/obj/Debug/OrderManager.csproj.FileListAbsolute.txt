@@ -19,3 +19,10 @@ D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\bin\Debug\Common.pdb
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\ResolveAssemblyReference.cache
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.dll
 D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.pdb
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\bin\Debug\OrderManager.dll
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\bin\Debug\OrderManager.pdb
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\bin\Debug\Common.dll
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\bin\Debug\Common.pdb
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.dll
+C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.pdb

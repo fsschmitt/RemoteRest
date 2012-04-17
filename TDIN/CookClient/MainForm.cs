@@ -19,6 +19,21 @@ public partial class MainForm : Form
         btnNextState.Enabled = false;
     }
     public delegate void addNewOrderDelegate(Order o);
+
+    public void addInitialOrders(ArrayList ordersL)
+    {
+        if (lbOrders.InvokeRequired)
+        {
+            this.BeginInvoke(new addNewOrderDelegate(addNewOrder), ordersL);
+            return;
+        }
+        foreach (Order o in ordersL)
+        {
+            lbOrders.Items.Add(o.Description + " - " + o.State);
+        }
+        orders.AddRange(ordersL);
+    }
+
     public void addNewOrder(Order o){
         if (lbOrders.InvokeRequired)
         {
@@ -37,17 +52,9 @@ public partial class MainForm : Form
 
         Order o = ((Order)orders[index]);
 
-        if (OrderState.Ready != o.State)
-        {
-            o.State = (OrderState)(((int)(o.State + 1)) % 3);
-            Program.cc.OrderManager.changeState(o.Id, o.State);
-        }
-        else
-        {
-            btnNextState.Enabled = false;
-            orders.RemoveAt(index);
-            lbOrders.Items.RemoveAt(index);
-        }
+
+        o.State = (OrderState)(((int)(o.State + 1)) % 3);
+        Program.cc.OrderManager.changeState(o.Id, o.State);
 
         if (lbOrders.Items.Count == 0)
         {
@@ -70,7 +77,7 @@ public partial class MainForm : Form
         return index; 
     }
 
-    String[] btnTexts = { "Accept Order", "Finalize Order", "Remove Order" };
+    String[] btnTexts = { "Accept Order", "Finalize Order"};
     public void changeOrderState(Order o)
     {
         int index = getOrderIndex(o);
@@ -86,11 +93,20 @@ public partial class MainForm : Form
             Console.WriteLine("ORDER SELECTED");
             Console.WriteLine(o);
         }
+
+        if (OrderState.Ready == o.State)
+        {
+            btnNextState.Enabled = false;
+            orders.RemoveAt(index);
+            lbOrders.Items.RemoveAt(index);
+            btnNextState.Text = btnTexts[0];
+        }
+        else
+        {
+            btnNextState.Text = btnTexts[(int)o.State];
+            lbOrders.Items[index] = o.Description + " - " + o.State;
+        }
         
-        btnNextState.Text = btnTexts[(int)o.State];
-
-        lbOrders.Items[index] = o.Description + " - " + o.State;
-
         lbOrders.Refresh();
     }
 

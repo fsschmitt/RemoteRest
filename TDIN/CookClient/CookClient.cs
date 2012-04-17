@@ -117,9 +117,11 @@ class CookClient
         orderChangedRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
         om.orderChangedEvent += new orderChangedDelegate(orderChangedRepeater.orderChangedRepeater);
 
+        mf.addInitialOrders(om.getAllDestination(cType));
         if (Program.debug) Console.WriteLine("Setup was made");
     }
     
+
     public void newOrderHandler(Order o)
     {
         if(Program.debug) Console.WriteLine(cType + " Received a new order!\n" + o);
