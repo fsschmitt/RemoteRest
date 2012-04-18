@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="green.png" />
     <Content Include="red.png" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\sushi.png" />
     <Content Include="yellow.png" />
   </ItemGroup>
