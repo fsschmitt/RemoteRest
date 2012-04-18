@@ -15,6 +15,32 @@ class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
+        bool commandLine = false;
+        string value = "";
+        switch (args.Length)
+        {
+            case 0:
+                break;
+            case 1:
+                if (args[0] != "1" && args[0] != "2")
+                {
+                    Console.WriteLine(args[0]);
+                    Console.WriteLine("Usage: CookClient.exe [1|2] \n1: Bar \n2: Kitchen");
+                    return;
+                }
+                else
+                {
+                    value = args[0];
+                    commandLine = true;
+                }
+                break;
+            default:
+                Console.WriteLine("Usage: CookClient.exe [1|2] \n1: Bar \n2: Kitchen");
+                return;
+        }
+            
+
+        
         if (Program.debug) Console.WriteLine("I'm the cook");
         try
         {
@@ -23,7 +49,16 @@ class Program
         }
         catch (Exception e) { Console.WriteLine("erro no log " + e.Message); }
         mf = new MainForm();
-        Application.Run(new Initial());
+        if (!commandLine)
+            Application.Run(new Initial());
+        else
+        {
+            if(value=="1")
+                cc = new CookClient(mf, CookType.Bar);
+            else
+                cc = new CookClient(mf, CookType.Kitchen);
+            Application.Run(mf);
+        }
         
 
         /*
