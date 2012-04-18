@@ -112,15 +112,18 @@ public interface IOrderManager
     event newOrderBarDelegate newOrderBarEvent;
     event newOrderKitchenDelegate newOrderKitchenEvent;
     event orderChangedDelegate orderChangedEvent;
+    event tableRemovedDelegate tableRemovedEvent;
     void addOrder(Order o);
     void changeState(String orderID, OrderState newState);
     ArrayList getAllOrders();
     ArrayList getAllDestination(CookType ct);
     ArrayList getOrdersFromTable(int id);
     Order getOrderFromID(string id);
+    void removeTable(int tableId);
 }
 public delegate void newOrderBarDelegate(Order o);
 public delegate void orderChangedDelegate(Order o);
+public delegate void tableRemovedDelegate(int tableId);
 public delegate void newOrderKitchenDelegate(Order o);
 
 
@@ -129,6 +132,7 @@ public class Repeater : MarshalByRefObject
     public event newOrderBarDelegate newOrderBar;
     public event newOrderKitchenDelegate newOrderKitchen;
     public event orderChangedDelegate orderChanged;
+    public event tableRemovedDelegate tableRemoved;
     public override object InitializeLifetimeService()
     {
         return null;
@@ -148,6 +152,11 @@ public class Repeater : MarshalByRefObject
     {
         if (orderChanged != null)
             orderChanged(o);
+    }
+    public void tableRemovedRepeater(int tableId)
+    {
+        if (tableRemoved != null)
+            tableRemoved(tableId);
     }
 
 }

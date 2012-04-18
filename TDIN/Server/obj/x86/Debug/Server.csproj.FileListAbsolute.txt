@@ -38,3 +38,13 @@ C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\Server\bin\Debug\OrderManager.pdb
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\Server\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\Server\obj\x86\Debug\Server.exe
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\Server\obj\x86\Debug\Server.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\Server.exe.config
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\Server.exe
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\Server.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\Common.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\OrderManager.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\Common.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\bin\Debug\OrderManager.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\obj\x86\Debug\Server.exe
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\Server\obj\x86\Debug\Server.pdb

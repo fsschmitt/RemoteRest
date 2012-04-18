@@ -10,6 +10,7 @@ public class OrderManager:MarshalByRefObject, IOrderManager
     public event newOrderKitchenDelegate newOrderKitchenEvent;
     public event newOrderBarDelegate newOrderBarEvent;
     public event orderChangedDelegate orderChangedEvent;
+    public event tableRemovedDelegate tableRemovedEvent;
 
     public OrderManager()
     {
@@ -83,5 +84,24 @@ public class OrderManager:MarshalByRefObject, IOrderManager
         return al;
     }
 
+    public void removeTable(int tableId)
+    {
+        ArrayList ids = new ArrayList();
+        ICollection c = this.orders.Values;
+        foreach (Order o in c)
+        {
+            if (o.TableID == tableId)
+                ids.Add(o.Id);
+
+        }
+
+        foreach (String id in ids)
+        {
+            orders.Remove(id);
+        }
+
+        if (tableRemovedEvent != null)
+            tableRemovedEvent(tableId);
+    }
 }
 

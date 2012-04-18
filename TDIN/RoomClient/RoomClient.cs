@@ -66,8 +66,22 @@ class RoomClient
         orderRepeater.newOrderBar += new newOrderBarDelegate(newOrderHandler);
         om.newOrderBarEvent += new newOrderBarDelegate(orderRepeater.newOrderKitchenRepeater);
 
+        //Listen to removed orders
+        orderRepeater.tableRemoved += new tableRemovedDelegate(removedTableHandler);
+        om.tableRemovedEvent += new tableRemovedDelegate(orderRepeater.tableRemovedRepeater);
+
         setupTables(om.getAllOrders());
         Console.WriteLine("Setup was made");
+    }
+
+    private void removedTableHandler(int id)
+    {
+        Console.WriteLine("Remove table: " + id);
+        if (Program.rc.Tables.ContainsKey(id))
+        {
+            tables.Remove(id);
+            Program.mf.removeTable(id);
+        }
     }
 
     private void newOrderHandler(Order o)

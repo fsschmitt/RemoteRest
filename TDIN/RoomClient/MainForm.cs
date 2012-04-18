@@ -67,13 +67,13 @@ using System.Windows.Forms;
                 switch (o.State)
                 {
                     case OrderState.Waiting:
-                        orders[i] = new TreeNode(o.Description, 2, 2);
+                        orders[i] = new TreeNode("[Qty: " + o.Qt + "] " + o.Description, 2, 2);
                         break;
                     case OrderState.InProgress:
-                        orders[i] = new TreeNode(o.Description, 1, 1);
+                        orders[i] = new TreeNode("[Qty: " + o.Qt + "] " + o.Description, 1, 1);
                         break;
                     case OrderState.Ready:
-                        orders[i] = new TreeNode(o.Description, 0, 0);
+                        orders[i] = new TreeNode("[Qty: " + o.Qt + "] " + o.Description, 0, 0);
                         break;
                 }
                 i++;
@@ -93,7 +93,7 @@ using System.Windows.Forms;
             
         }
         public delegate void removeTableDelegate(int id);
-        private void removeTable(int tableID)
+        public void removeTable(int tableID)
         {
             if (tvTables.InvokeRequired)
             {
@@ -155,8 +155,10 @@ using System.Windows.Forms;
 
                 if (MessageBox.Show("Table total : " + getTableTotal(index) + "€", "Confirm close table", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Program.rc.Tables.Remove(index);
-                    removeTable(index);
+                    //Program.rc.Tables.Remove(index);
+                    //removeTable(index);
+                    Program.rc.OrderManager.removeTable(index);
+                    
                     btnCloseTable.Enabled = false;
                 }
             }

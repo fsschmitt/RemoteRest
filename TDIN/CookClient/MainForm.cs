@@ -31,7 +31,7 @@ public partial class MainForm : Form
         }
         foreach (Order o in ordersL)
         {
-            lbOrders.Items.Add(o.Description + " - " + o.State);
+            lbOrders.Items.Add("[Qty: "+ o.Qt+"] "+ o.Description + " - " + o.State);
         }
         orders.AddRange(ordersL);
     }
@@ -43,7 +43,7 @@ public partial class MainForm : Form
             return;
         }
         else
-            lbOrders.Items.Add(o.Description + " - " + o.State);
+            lbOrders.Items.Add("[Qty: " + o.Qt + "] " + o.Description + " - " + o.State);
            
             orders.Add(o);
     }
@@ -107,7 +107,7 @@ public partial class MainForm : Form
         else
         {
             btnNextState.Text = btnTexts[(int)o.State];
-            lbOrders.Items[index] = o.Description + " - " + o.State;
+            lbOrders.Items[index] = "[Qty: " + o.Qt + "] " + o.Description + " - " + o.State;
         }
         
         lbOrders.Refresh();

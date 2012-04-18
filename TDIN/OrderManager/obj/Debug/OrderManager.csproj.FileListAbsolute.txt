@@ -26,3 +26,10 @@ C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\bin\Debug\Common.pdb
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.dll
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\OrderManager\obj\Debug\OrderManager.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\bin\Debug\OrderManager.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\bin\Debug\OrderManager.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\bin\Debug\Common.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\bin\Debug\Common.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\obj\Debug\OrderManager.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\OrderManager\obj\Debug\OrderManager.pdb

@@ -32,6 +32,20 @@ using System.Text;
             orders.Add(o);
         }
 
+        public void removeOrder(Order o)
+        {
+            int i = 0;
+            foreach (Order ord in orders)
+            {
+                if (ord.Id == o.Id)
+                {
+                    break;
+                }
+                i++;
+            }
+            orders.RemoveAt(i);
+        }
+
         public void addOrders(ArrayList newOrders)
         {
             orders.AddRange(newOrders);

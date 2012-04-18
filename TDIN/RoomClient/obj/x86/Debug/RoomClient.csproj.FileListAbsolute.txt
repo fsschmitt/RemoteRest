@@ -49,3 +49,16 @@ C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\RoomClient\obj\x86\Debug\GenerateRes
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\RoomClient\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.exe
 C:\Users\ei08160\RemoteRest\RemoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\bin\Debug\RoomClient.exe.config
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\bin\Debug\RoomClient.exe
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\bin\Debug\RoomClient.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\bin\Debug\Common.dll
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\bin\Debug\Common.pdb
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\MainForm.resources
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\NewOrder.resources
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClientNs.Properties.Resources.resources
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.exe
+C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\RoomClient\obj\x86\Debug\RoomClient.pdb

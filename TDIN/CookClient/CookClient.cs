@@ -22,11 +22,9 @@ class Program
             RemotingConfiguration.Configure("CookClient.exe.config", true);
         }
         catch (Exception e) { Console.WriteLine("erro no log " + e.Message); }
-
-        
         mf = new MainForm();
-        cc = new CookClient(mf,CookType.Bar);
-        Application.Run(mf);
+        Application.Run(new Initial());
+        
 
         /*
         // creats the logger
@@ -44,7 +42,18 @@ class Program
         Console.ReadLine();
         */
     }
+
+    public static void startBar()
+    {
+        cc = new CookClient(mf, CookType.Bar);
+    }
+
+    public static void startKitchen()
+    {
+        cc = new CookClient(mf, CookType.Kitchen);
+    }
 }
+
 
 /* Mechanism for instanciating a remote object through its interface, using the config file */
 
@@ -72,7 +81,6 @@ class RemoteNew
 
 class CookClient
 {
-    int ID;
     CookType cType; 
     Repeater orderRepeater;
     Repeater orderChangedRepeater;
@@ -119,6 +127,22 @@ class CookClient
 
         mf.addInitialOrders(om.getAllDestination(cType));
         if (Program.debug) Console.WriteLine("Setup was made");
+        
+        
+        switch (cType)
+        {
+            case CookType.Bar:
+                mf.Text = "CookClient - Bar";
+                break;
+            case CookType.Kitchen:
+                mf.Text = "CookClient - Kitchen";
+                break;
+            default:
+                mf.Text = "CookClient";
+                break;
+        }
+        mf.Show();
+        
     }
     
 
