@@ -59,23 +59,6 @@ class Program
                 cc = new CookClient(mf, CookType.Kitchen);
             Application.Run(mf);
         }
-        
-
-        /*
-        // creats the logger
-        CookClient cBar = new CookClient(om,CookType.Bar);
-
-        // and assigns the handler to the event
-        cBar.setup();
-
-        CookClient cKitchen = new CookClient(om, CookType.Kitchen);
-
-        cKitchen.setup();
-
-
-        Console.WriteLine("Return to exit...");
-        Console.ReadLine();
-        */
     }
 
     public static void startBar()

@@ -133,24 +133,6 @@ using System.Threading;
             foreach (Order o in orders)
                 Program.rc.OrderManager.addOrder(o);
 
-            
-            /*if(Program.rc.Tables.ContainsKey(tableID))
-            {
-                updateTableDelegate utd = new updateTableDelegate(Program.mf.updateTable);
-
-                ((Table)Program.rc.Tables[tableID]).addOrders(orders);
-                utd.Invoke(tableID);
-            }
-            else
-            {
-                Table newTable = new Table(tableID);
-                newTable.addOrders(orders);
-                Program.rc.Tables.Add(tableID, newTable);
-                updateViewDelegate uvd = new updateViewDelegate(Program.mf.addNewTable);
-                uvd.Invoke(newTable);
-            }*/
-            
-
             this.Close();
         }
 

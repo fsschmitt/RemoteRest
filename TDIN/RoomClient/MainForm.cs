@@ -155,10 +155,7 @@ using System.Windows.Forms;
 
                 if (MessageBox.Show("Table total : " + getTableTotal(index) + "€", "Confirm close table", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //Program.rc.Tables.Remove(index);
-                    //removeTable(index);
                     Program.rc.OrderManager.removeTable(index);
-                    
                     btnCloseTable.Enabled = false;
                 }
             }
