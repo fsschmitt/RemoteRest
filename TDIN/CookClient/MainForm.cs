@@ -116,6 +116,7 @@ public partial class MainForm : Form
         {
             btnNextState.Text = btnTexts[(int)o.State];
             lbOrders.Items[index] = "[Qty: " + o.Qt + "] " + o.Description + " - " + o.State;
+            orders[index] = o;
         }
         
         lbOrders.Refresh();
