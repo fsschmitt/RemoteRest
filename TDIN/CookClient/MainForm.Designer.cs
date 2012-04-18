@@ -83,6 +83,7 @@ partial class MainForm
         this.Controls.Add(this.groupBox1);
         this.Name = "MainForm";
         this.Text = "CookClient";
+        this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
         this.groupBox1.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
         this.ResumeLayout(false);

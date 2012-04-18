@@ -113,12 +113,12 @@ using System.Windows.Forms;
             }
             TreeNode[] orders = getTreeNodes((Table)Program.rc.Tables[tableID]);
             int index = findTableInTreeView(tableID);
-            Console.WriteLine("INDEX = " + index);
+            if (Program.debug) Console.WriteLine("INDEX = " + index);
             if(index!=-1){
                 tvTables.Nodes[index].Nodes.Clear();
                 tvTables.Nodes[index].Nodes.AddRange(orders);
             }else{
-                Console.WriteLine("COUNT: " + tvTables.Nodes.Count);
+                if (Program.debug) Console.WriteLine("COUNT: " + tvTables.Nodes.Count);
                 foreach (TreeNode t in tvTables.Nodes)
                 {
                     Console.WriteLine("Key:" + t.Text);
@@ -184,6 +184,12 @@ using System.Windows.Forms;
         private void MainForm_Load(object sender, EventArgs e)
         {
             addInitialTables();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.rc.exit();
+
         }
 
         

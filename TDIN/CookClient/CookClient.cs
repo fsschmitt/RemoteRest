@@ -15,7 +15,6 @@ class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        bool commandLine = false;
         string value = "";
         switch (args.Length)
         {
@@ -31,15 +30,12 @@ class Program
                 else
                 {
                     value = args[0];
-                    commandLine = true;
                 }
                 break;
             default:
                 Console.WriteLine("Usage: CookClient.exe [1|2] \n1: Bar \n2: Kitchen");
                 return;
         }
-            
-
         
         if (Program.debug) Console.WriteLine("I'm the cook");
         try
@@ -49,16 +45,21 @@ class Program
         }
         catch (Exception e) { Console.WriteLine("erro no log " + e.Message); }
         mf = new MainForm();
-        if (!commandLine)
-            Application.Run(new Initial());
-        else
+
+        if (value.Equals("1"))
         {
-            if(value=="1")
-                cc = new CookClient(mf, CookType.Bar);
-            else
-                cc = new CookClient(mf, CookType.Kitchen);
+            startBar();
             Application.Run(mf);
         }
+        else if (value.Equals("2"))
+        {
+            startKitchen();
+            Application.Run(mf);
+        }
+        else
+            Application.Run(new Initial());
+        
+  
     }
 
     public static void startBar()
@@ -69,6 +70,11 @@ class Program
     public static void startKitchen()
     {
         cc = new CookClient(mf, CookType.Kitchen);
+    }
+
+    public static void stopApplication()
+    {
+        Application.Exit();
     }
 }
 
@@ -99,11 +105,23 @@ class RemoteNew
 
 class CookClient
 {
-    CookType cType; 
+    CookType cType;
     Repeater orderRepeater;
-    Repeater orderChangedRepeater;
     IOrderManager om;
     MainForm mf;
+
+    public Repeater OrderRepeater
+    {
+        get { return orderRepeater; }
+        set { orderRepeater = value; }
+    }
+
+    public CookType CType
+    {
+        get { return cType; }
+        set { cType = value; }
+    } 
+    
     public CookClient(MainForm mf,CookType type)
     {
         this.mf = mf;
@@ -139,9 +157,8 @@ class CookClient
 
         }
 
-        orderChangedRepeater = new Repeater();
-        orderChangedRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
-        om.orderChangedEvent += new orderChangedDelegate(orderChangedRepeater.orderChangedRepeater);
+        orderRepeater.orderChanged += new orderChangedDelegate(orderChangedHandler);
+        om.orderChangedEvent += new orderChangedDelegate(orderRepeater.orderChangedRepeater);
 
         mf.addInitialOrders(om.getAllDestination(cType));
         if (Program.debug) Console.WriteLine("Setup was made");
@@ -174,6 +191,28 @@ class CookClient
     {
         if (Program.debug) Console.WriteLine("Order number: " + o.Id + " changed to: " + o.State);
         mf.changeOrderState(o);
+    }
+
+    public void exit()
+    {
+        orderRepeater.orderChanged -= new orderChangedDelegate(orderChangedHandler);
+        om.orderChangedEvent -= new orderChangedDelegate(orderRepeater.orderChangedRepeater);
+        switch (cType)
+        {
+            case CookType.Kitchen:
+                orderRepeater.newOrderKitchen -= new newOrderKitchenDelegate(newOrderHandler);
+                om.newOrderKitchenEvent -= new newOrderKitchenDelegate(orderRepeater.newOrderKitchenRepeater);
+                break;
+            case CookType.Bar:
+                orderRepeater.newOrderBar -= new newOrderBarDelegate(newOrderHandler);
+                om.newOrderBarEvent -= new newOrderBarDelegate(orderRepeater.newOrderBarRepeater);
+                break;
+            default:
+                if (Program.debug) Console.WriteLine("OOPS");
+                break;
+
+        }
+
     }
 
 }

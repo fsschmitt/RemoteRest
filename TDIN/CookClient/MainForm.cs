@@ -31,9 +31,12 @@ public partial class MainForm : Form
         }
         foreach (Order o in ordersL)
         {
-            lbOrders.Items.Add("[Qty: "+ o.Qt+"] "+ o.Description + " - " + o.State);
+            if (o.State != OrderState.Ready)
+            {
+                orders.Add(o);
+                lbOrders.Items.Add("[Qty: " + o.Qt + "] " + o.Description + " - " + o.State);
+            }
         }
-        orders.AddRange(ordersL);
     }
 
     public void addNewOrder(Order o){
@@ -125,6 +128,12 @@ public partial class MainForm : Form
         Order o = (Order)orders[index];
         btnNextState.Text = btnTexts[(int)o.State];
         btnNextState.Enabled = true;
+    }
+
+    private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        Program.cc.exit();
+        Program.stopApplication();
     }
 
 }

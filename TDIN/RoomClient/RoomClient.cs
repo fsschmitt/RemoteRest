@@ -9,6 +9,8 @@ class Program
 {
    public static RoomClient rc;
    public static MainForm mf;
+   public static bool debug = true;
+
    public static void Main(string[] args)
     {
        try
@@ -71,12 +73,12 @@ class RoomClient
         om.tableRemovedEvent += new tableRemovedDelegate(orderRepeater.tableRemovedRepeater);
 
         setupTables(om.getAllOrders());
-        Console.WriteLine("Setup was made");
+        if (Program.debug) Console.WriteLine("Setup was made");
     }
 
     private void removedTableHandler(int id)
     {
-        Console.WriteLine("Remove table: " + id);
+        if (Program.debug) Console.WriteLine("Remove table: " + id);
         if (Program.rc.Tables.ContainsKey(id))
         {
             tables.Remove(id);
@@ -87,7 +89,7 @@ class RoomClient
     private void newOrderHandler(Order o)
     {
 
-        Console.WriteLine("RECIEVED THE ORDER: " + o);
+        if (Program.debug) Console.WriteLine("RECIEVED THE ORDER: " + o);
         if (Program.rc.Tables.ContainsKey(o.TableID))
         {
             ((Table)tables[o.TableID]).addOrder(o);
@@ -113,7 +115,7 @@ class RoomClient
              }
              else
              {
-                 Console.WriteLine("New table: " + o.TableID);
+                 if (Program.debug) Console.WriteLine("New table: " + o.TableID);
                  Table newTable = new Table(o.TableID);
                  newTable.addOrder(o);
                  tables.Add(o.TableID, newTable);
@@ -148,6 +150,24 @@ class RoomClient
             Program.mf.updateTable(o.TableID);
         }
         
+    }
+
+    public void exit()
+    {
+        orderRepeater.orderChanged -= new orderChangedDelegate(orderChangedHandler);
+        om.orderChangedEvent -= new orderChangedDelegate(orderRepeater.orderChangedRepeater);
+
+        //Quit Listening to new kitchen orders
+        orderRepeater.newOrderKitchen -= new newOrderKitchenDelegate(newOrderHandler);
+        om.newOrderKitchenEvent -= new newOrderKitchenDelegate(orderRepeater.newOrderKitchenRepeater);
+
+        //Quit Listening to new bar orders
+        orderRepeater.newOrderBar -= new newOrderBarDelegate(newOrderHandler);
+        om.newOrderBarEvent -= new newOrderBarDelegate(orderRepeater.newOrderKitchenRepeater);
+
+        //Quit Listening to removed orders
+        orderRepeater.tableRemoved -= new tableRemovedDelegate(removedTableHandler);
+        om.tableRemovedEvent -= new tableRemovedDelegate(orderRepeater.tableRemovedRepeater);
     }
 
     
