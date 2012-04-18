@@ -77,7 +77,7 @@ using System.Threading;
             double price = prices[cbDestination.SelectedIndex][cbDesc.SelectedIndex];
             CookType cookDestination = (CookType)Enum.ToObject(typeof(CookType), cbDestination.SelectedIndex);
             Order o = new Order(qt, desc,tableID, price, cookDestination);
-            lbRequests.Items.Add("["+o.Id+"] "+ o.TableID + " - " + o.CookDestination + ": "+ o.Description + " - " + o.Qt);
+            lbRequests.Items.Add(o.TableID + " - " + o.CookDestination + ": "+ o.Description + " - " + o.Qt);
             txtTable.Enabled = false;
             btnFinalize.Enabled = true;
             orders.Add(o);
