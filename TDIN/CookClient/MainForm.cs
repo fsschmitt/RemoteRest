@@ -34,6 +34,7 @@ public partial class MainForm : Form
             if (o.State != OrderState.Ready)
             {
                 orders.Add(o);
+                
                 lbOrders.Items.Add("[Qty: " + o.Qt + "] " + o.Description + " - " + o.State);
             }
         }
@@ -70,22 +71,26 @@ public partial class MainForm : Form
 
     private int getOrderIndex(Order o)
     {
+        
         int index = 0;
         foreach (Order ord in orders)
         {
+            
+           
             if (ord.Id == o.Id)
             {
-                break;
+                return index; 
             }
             index++;
         }
-        return index; 
+        return -1;
     }
 
 
     String[] btnTexts = { "Accept Order", "Finalize Order"};
     public void changeOrderState(Order o)
     {
+        
         int index = getOrderIndex(o);
         if (lbOrders.InvokeRequired)
         {

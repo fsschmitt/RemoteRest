@@ -190,7 +190,8 @@ class CookClient
     public void orderChangedHandler(Order o)
     {
         if (Program.debug) Console.WriteLine("Order number: " + o.Id + " changed to: " + o.State);
-        mf.changeOrderState(o);
+        if(o.CookDestination == this.CType)
+         mf.changeOrderState(o);
     }
 
     public void exit()

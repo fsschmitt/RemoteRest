@@ -54,3 +54,4 @@ C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\CookClient\obj\x86\Debug\Gener
 C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.exe
 C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\CookClient\obj\x86\Debug\CookClient.pdb
 C:\Users\Felipe Schmitt\workspace\remoteRest\TDIN\CookClient\obj\x86\Debug\Initial.resources
+D:\mieic\4-ano\2-semestre\TDIN\RemoteRest\TDIN\CookClient\obj\x86\Debug\Initial.resources
